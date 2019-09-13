@@ -35,7 +35,7 @@ FAKEROOT_BINDIR=/app/.tools/fakeroot/bin
 
 USEABSLIBPATH=0
 LIB=libfakeroot-sysv.so
-PATHS=/app/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot:${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
+PATHS=${BUILDPACK_DIR}/tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot:/app/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot:${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
 FAKED=${FAKEROOT_BINDIR}/faked-sysv
 
 FAKED_MODE="unknown-is-root"
