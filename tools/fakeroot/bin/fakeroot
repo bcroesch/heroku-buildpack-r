@@ -113,6 +113,7 @@ if [ -n "$PATHS" ]
 then
     for dir in `echo $PATHS | sed 's/:/ /g'`
     do
+  echo "Looking in: $dir/$LIB"
 	if test -r "$dir/$LIB"
 	then
 	    libfound=yes
