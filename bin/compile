@@ -221,9 +221,6 @@ ln -sf $BUILD_DIR app
 # as the heroku instance. I.e. /app exists and contains their code etc.
 sed -i "s#root:x:0:0:root:/root:/bin/bash#root:x:0:0:root:/app:/bin/bash#g" etc/passwd
 
-apt-get update
-apt-get install -y fakeroot
-
 ###
 #
 # FIXME:
