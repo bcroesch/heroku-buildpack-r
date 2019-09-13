@@ -114,14 +114,14 @@ function export_env_dir() {
 function patch_chroot() {
   old=$1
   new=$2
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/bin/env.fakechroot"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/bin/fakechroot"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/bin/ldd.fakechroot"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/etc/fakechroot/chroot.env"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/etc/fakechroot/debootstrap.env"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/etc/fakechroot/rinse.env"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/lib/fakechroot/libfakechroot.la"
-  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/bin/env.fakechroot"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/bin/fakechroot"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/bin/ldd.fakechroot"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/etc/fakechroot/chroot.env"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/etc/fakechroot/debootstrap.env"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/etc/fakechroot/rinse.env"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/lib/fakechroot/libfakechroot.la"
+  sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so"
 }
 
 # debug
@@ -160,7 +160,7 @@ else
 fi
 
 # environment
-TOOLS_DIR="$BUILD_DIR/.tools"
+TOOLS_DIR="$BUILDPACK_DIR/tools"
 FAKECHROOT_DIR="$TOOLS_DIR/fakechroot"
 FAKEROOT_DIR="$TOOLS_DIR/fakeroot"
 CHROOT_DIR="$BUILD_DIR/.root"
@@ -339,7 +339,7 @@ patch_chroot "$BUILD_DIR" "/app"
 topic "Caching build outputs"
 
 pushd $BUILD_DIR > /dev/null
-tar czf "$CACHE_DIR/$CACHE_KEY" .root .tools
+tar czf "$CACHE_DIR/$CACHE_KEY" .root tools
 popd > /dev/null
 
 #
