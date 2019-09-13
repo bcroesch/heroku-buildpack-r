@@ -121,8 +121,6 @@ function patch_chroot() {
   sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/etc/fakechroot/debootstrap.env"
   sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/etc/fakechroot/rinse.env"
   sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakechroot/lib/fakechroot/libfakechroot.la"
-  # echo `ls $BUILDPACK_DIR/tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot`
-  # sed -i "s#$old#$new#g" "$BUILDPACK_DIR/tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so"
 }
 
 # debug
@@ -238,6 +236,7 @@ sed -i "s#root:x:0:0:root:/root:/bin/bash#root:x:0:0:root:/app:/bin/bash#g" etc/
 echo "First fakeroot call"
 echo "which fakechroot: `which fakechroot`"
 echo "which fakeroot: `which fakeroot`"
+echo "fakeroot lib dir: `ls $FAKEROOT_DIR/lib/x86_64-linux-gnu/libfakeroot`"
 
 fakechroot fakeroot chroot $CHROOT_DIR \
   /bin/sh -c 'cd /usr/lib && ln -sf ../lib/R/lib/libR.so libR.so'
