@@ -210,8 +210,9 @@ popd > /dev/null
 
 topic "Moving libfakeroot"
 topic "From $FAKEROOT_DIR/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so.tmp"
-topic "To $FAKEROOT_DIR/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so"
-mv $FAKEROOT_DIR/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so.tmp $FAKEROOT_DIR/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so
+topic "To /app/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so"
+mkdir -p /app/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot
+mv $FAKEROOT_DIR/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so.tmp /app/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so
 
 echo "Patching chroot" 
 # set to build dir, so packages can be installed
