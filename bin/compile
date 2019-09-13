@@ -235,6 +235,8 @@ sed -i "s#root:x:0:0:root:/root:/bin/bash#root:x:0:0:root:/app:/bin/bash#g" etc/
 #
 
 echo "First fakeroot call"
+echo "which fakechroot: `which fakechroot`"
+echo "which fakeroot: `which fakeroot`"
 
 fakechroot fakeroot chroot $CHROOT_DIR \
   /bin/sh -c 'cd /usr/lib && ln -sf ../lib/R/lib/libR.so libR.so'
