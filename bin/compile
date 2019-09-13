@@ -121,6 +121,7 @@ function patch_chroot() {
   sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/etc/fakechroot/debootstrap.env"
   sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/etc/fakechroot/rinse.env"
   sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakechroot/lib/fakechroot/libfakechroot.la"
+  sed -i "s#$old#$new#g" "$BUILD_DIR/.tools/fakeroot/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so"
 }
 
 # debug
