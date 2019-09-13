@@ -161,7 +161,7 @@ fi
 # environment
 TOOLS_DIR="$BUILD_DIR/.tools"
 FAKECHROOT_DIR="$TOOLS_DIR/fakechroot"
-FAKEROOT_DIR="$TOOLS_DIR/fakechroot"
+FAKEROOT_DIR="$TOOLS_DIR/fakeroot"
 CHROOT_DIR="$BUILD_DIR/.root"
 
 
