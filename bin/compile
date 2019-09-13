@@ -134,16 +134,16 @@ ENV_DIR=$3
 
 # fix STACK variable if unset
 if [[ -z "${STACK}" ]]; then
-  STACK="heroku-16"
+  STACK="heroku-18"
 fi
 
 # ensure correct stack
-if [[ ! "$STACK" == "heroku-16" ]]; then
+if [[ ! "$STACK" == "heroku-18" ]]; then
 
   echo
-  echo "-----> ERROR: This version of the buildpack is intended for use with the 'heroku-16' stack"
+  echo "-----> ERROR: This version of the buildpack is intended for use with the 'heroku-18' stack"
   echo
-  echo "       Use the 'heroku stack:set' CLI command to use the 'heroku-16' stack."
+  echo "       Use the 'heroku stack:set' CLI command to use the 'heroku-18' stack."
   echo "       See https://devcenter.heroku.com/articles/stack for more information."
   echo
   exit 1
