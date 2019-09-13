@@ -209,6 +209,7 @@ fi
 
 popd > /dev/null
 
+echo "Patching chroot"
 # set to build dir, so packages can be installed
 patch_chroot "/app" "$BUILD_DIR"
 
@@ -232,6 +233,8 @@ sed -i "s#root:x:0:0:root:/root:/bin/bash#root:x:0:0:root:/app:/bin/bash#g" etc/
 #        changing the symlink to the following works
 #        /usr/lib/libR.so => ../lib/R/lib/libR.so
 #
+
+echo "First fakeroot call"
 
 fakechroot fakeroot chroot $CHROOT_DIR \
   /bin/sh -c 'cd /usr/lib && ln -sf ../lib/R/lib/libR.so libR.so'
@@ -284,6 +287,8 @@ else
   # assuming run.R is present
   unset INIT_FILE
 fi
+
+echo "Checking init file"
 
 if [[ ! -z "$INIT_FILE" ]]; then
 
